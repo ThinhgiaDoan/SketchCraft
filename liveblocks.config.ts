@@ -4,6 +4,7 @@ import { createRoomContext } from "@liveblocks/react";
 const client = createClient({
   publicApiKey:
     "pk_dev_CcahHnHbGDvBB4GUmuaAkMTmUgI0dsPojbS8JfvRr4thTe7eiSqaOYYTWXBQ7YrS",
+  // authEndpoint: "/api/liveblocks-auth",
 });
 
 // Presence represents the properties that exist on every user in the Room
@@ -34,8 +35,11 @@ type UserMeta = {
 // Optionally, the type of custom events broadcast and listened to in this
 // room. Use a union for multiple events. Must be JSON-serializable.
 type RoomEvent = {
-  // type: "NOTIFICATION",
-  // ...
+  id?: string;
+  info?: {
+    name?: string;
+    picture?: string;
+  };
 };
 
 // Optionally, when using Comments, ThreadMetadata represents metadata on
